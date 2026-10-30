@@ -39,11 +39,21 @@
     <div class="msg ok hidden" id="ci-done" data-i18n="ci.done" style="font-size:1.05rem;padding:22px"></div>
 
     <form id="ci-form" class="panel" novalidate>
+      <div class="source-switch" role="radiogroup">
+        <span data-i18n="ci.source"></span>
+        <label><input type="radio" name="source" value="web" checked><span data-i18n="ci.source.web"></span></label>
+        <label><input type="radio" name="source" value="booking"><span>Booking.com</span></label>
+      </div>
       <div class="row three">
-        <label><span data-i18n="ci.reservation"></span><input name="reservation" id="f-reservation" required></label>
+        <label><span id="l-reservation" data-i18n="ci.reservation"></span><input name="reservation" id="f-reservation" required inputmode="numeric"></label>
         <label><span data-i18n="ci.arrivalTime"></span><input type="time" name="arrivalTime" required></label>
         <label><span data-i18n="ci.car"></span><input name="car"></label>
       </div>
+      <div class="row hidden" id="stay-dates">
+        <label><span data-i18n="book.arrival"></span><input type="date" name="arrival" id="f-arr"></label>
+        <label><span data-i18n="book.departure"></span><input type="date" name="departure" id="f-dep"></label>
+      </div>
+      <p class="hint hidden" id="booking-hint" data-i18n="ci.bookingHint"></p>
 
       <div id="guests"></div>
       <button type="button" class="btn ghost block" id="add-guest" data-i18n="ci.addGuest" style="color:var(--vltava);margin-bottom:22px"></button>

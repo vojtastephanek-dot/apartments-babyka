@@ -9,7 +9,7 @@ Data se ukládají do vaší Google tabulky, e-maily se posílají z vašeho Gma
 - rezervační formulář s výpočtem ceny, zálohy a poplatku z pobytu
 - **QR Platba** (standard ČBA, funguje ve všech českých bankách) + IBAN pro zahraničí
 - potvrzovací e-mail hostovi (odkaz na QR platbu a check-in) a upozornění vám
-- **online check-in** pro všechny hosty: údaje do evidence ubytovaných, u cizinců navíc
+- **online check-in** pro hosty z webu i z Bookingu (generátor odkazu `odkaz.html`): údaje do evidence ubytovaných, u cizinců navíc
   údaje pro hlášení přes Ubyport (číslo víza jen pro státy mimo EU/EHP)
 - menu v tabulce: „Označit jako ZAPLACENO“ (pošle hostovi potvrzení) a „Stornovat“
 - export vašich přímých rezervací jako iCal → Booking si termíny zablokuje sám
@@ -55,7 +55,18 @@ apps-script/Code.gs  backend pro Google Apps Script
   s přesměrováním (Apps Script přesměrovává) – pokud import selže, je třeba malý proxy
   (např. Cloudflare Worker), rádi doplníme.
 
-### 4. Doporučené
+### 4. Online check-in pro hosty z Bookingu
+Rezervace z Bookingu v tabulce nejsou, proto host zadá číslo rezervace z Booking.com
+a termín pobytu sám. Ruční vyplňování mu ušetříte odkazem:
+
+1. Otevřete **`odkaz.html`** (např. `https://vojtastephanek-dot.github.io/apartments-babyka/odkaz.html`).
+   Stránka není nikde v menu, uložte si ji do záložek.
+2. Vyplňte číslo rezervace (klidně s tečkami, jak ho ukazuje Booking), termín, jméno a jazyk.
+3. **Kopírovat zprávu** → vložte do zpráv v extranetu Booking.com / aplikaci Pulse a odešlete.
+4. Host otevře odkaz, číslo i termín má předvyplněné, doplní jen osoby.
+   Výsledek přijde e-mailem a do listu „Check-in“ se zdrojem „Booking.com“.
+
+### 5. Doporučené
 - V Apps Scriptu: *Spouštěče → Přidat* → funkce `expireUnpaid`, denně → automaticky
   stornuje nezaplacené rezervace po splatnosti.
 - Doplňte a nechte zkontrolovat `gdpr.html` a obchodní/storno podmínky.

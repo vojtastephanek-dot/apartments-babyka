@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Odkaz na check-in · Apartments Babyka</title>
+  <meta name="robots" content="noindex">
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<nav class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html"><svg viewBox="8 0 16 32" aria-hidden="true"><rect x="12" y="22" width="8" height="10" fill="#e6d4a0"/><path d="M12 24h4v2h-4zM16 26h4v2h-4zM12 28h4v2h-4zM16 22h4v2h-4z" fill="#e2b3a6"/><rect x="12" y="16" width="8" height="6" fill="#dfae9f"/><rect x="11.5" y="14.6" width="9" height="1.6" fill="#efe3cc"/><rect x="12" y="11.6" width="8" height="3" fill="#efe3cc"/><path d="M13 14.6v-1.6a.7.7 0 0 1 1.4 0v1.6zM15.3 14.6v-1.6a.7.7 0 0 1 1.4 0v1.6zM17.6 14.6v-1.6a.7.7 0 0 1 1.4 0v1.6z" fill="#7a2d1f"/><path d="M10.6 11.8L12 10.2h8l1.4 1.6z" fill="#3f6657"/><rect x="12.8" y="7.6" width="6.4" height="2.7" fill="#efe3cc"/><path d="M12.6 7.8c.6-1.8 2.4-2.2 2.7-3.2h1.4c.3 1 2.1 1.4 2.7 3.2z" fill="#5e8b78"/><rect x="15" y="3" width="2" height="1.7" fill="#efe3cc"/><path d="M14.6 3.2c-.3-1 .6-1.5 1.4-2c.8.5 1.7 1 1.4 2z" fill="#5e8b78"/><circle cx="16" cy=".9" r=".6" fill="#e9c98c"/></svg><span><b>Babyka</b><small>Apartments · Český Krumlov</small></span></a>
+    <div class="nav-links">
+      <a href="index.html#apartmany" data-i18n="nav.rooms"></a>
+      <a href="index.html#rezervace" data-i18n="nav.book"></a>
+      <a href="checkin.html" data-i18n="nav.checkin"></a>
+      <a href="#kontakt" data-i18n="nav.contact"></a>
+      <div class="lang-switch"><button data-lang="cs">CZ</button><button data-lang="en">EN</button><button data-lang="de">DE</button></div>
+    </div>
+    <button class="nav-toggle" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
+</nav>
+<header class="page-head"><div class="wrap narrow"><div class="kicker">Pro hostitele</div><h1>Odkaz na online check-in</h1>
+<p>Pro hosty z Booking.com: vyplňte číslo rezervace a termín, zkopírujte zprávu a pošlete ji hostovi přes zprávy v extranetu nebo v aplikaci Pulse.</p></div></header>
+<section style="padding-top:48px"><div class="wrap narrow">
+  <form class="panel" id="gen" onsubmit="return false">
+    <div class="row">
+      <label><span>Číslo rezervace Booking.com</span><input id="g-r" inputmode="numeric" placeholder="4123.456.789"></label>
+      <label><span>Jméno hosta (nepovinné)</span><input id="g-name" placeholder="Anna"></label>
+    </div>
+    <div class="row three">
+      <label><span>Příjezd</span><input type="date" id="g-a"></label>
+      <label><span>Odjezd</span><input type="date" id="g-d"></label>
+      <label><span>Jazyk zprávy</span><select id="g-lang"><option value="en">English</option><option value="de">Deutsch</option><option value="cs">Čeština</option></select></label>
+    </div>
+    <label><span>Odkaz</span><input id="g-link" readonly></label>
+    <label><span>Zpráva pro hosta</span><textarea id="g-msg" readonly style="min-height:190px"></textarea></label>
+    <div class="row">
+      <button type="button" class="btn ghost" style="color:var(--vltava)" data-copy="g-link">Kopírovat odkaz</button>
+      <button type="button" class="btn" data-copy="g-msg">Kopírovat zprávu</button>
+    </div>
+    <div class="msg ok hidden" id="g-ok" style="margin-top:14px">Zkopírováno do schránky.</div>
+  </form>
+</div></section>
+<footer id="kontakt">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <h4>Apartments Babyka</h4>
+        <p data-c="contact.address"></p>
+        <p><a class="map-link" target="_blank" rel="noopener">Mapy.cz →</a></p>
+      </div>
+      <div>
+        <h4 data-i18n="nav.contact"></h4>
+        <p><a data-c="contact.email" data-href="mailto:{}"></a></p>
+        <p><a data-c="contact.phone" data-href="tel:{}"></a></p>
+      </div>
+      <div>
+        <h4>Info</h4>
+        <p>Check-in <span data-c="checkInTime"></span> · Check-out <span data-c="checkOutTime"></span></p>
+        <p><a href="checkin.html" data-i18n="nav.checkin"></a></p>
+        <p><a href="gdpr.html">GDPR</a></p>
+      </div>
+    </div>
+    <div class="bottom">© <span id="year"></span> Apartments Babyka. <span data-i18n="footer.rights"></span></div>
+  </div>
+</footer>
+<script src="assets/config.js"></script>
+<script src="assets/i18n.js"></script>
+<script src="assets/common.js"></script>
+<script>
+(function () {
+  const $ = (id) => document.getElementById(id);
+  const C = Babyka.C;
+  const T = {
+    en: (n, link) => `Hello${n ? " " + n : ""},\n\nthank you for booking ${C.name}! Czech law requires us to register all guests (and report foreign guests to the police). To save time on arrival, please fill in the online check-in for everyone in your group:\n\n${link}\n\nCheck-in is from ${C.checkInTime}. Please let us know your expected arrival time in the form.\n\nSee you soon!`,
+    de: (n, link) => `Guten Tag${n ? " " + n : ""},\n\nvielen Dank für Ihre Buchung bei ${C.name}! Nach tschechischem Recht müssen wir alle Gäste registrieren (und ausländische Gäste der Polizei melden). Damit es bei der Ankunft schneller geht, füllen Sie bitte den Online-Check-in für alle Mitreisenden aus:\n\n${link}\n\nCheck-in ab ${C.checkInTime}. Bitte geben Sie im Formular Ihre voraussichtliche Ankunftszeit an.\n\nBis bald!`,
+    cs: (n, link) => `Dobrý den${n ? " " + n : ""},\n\nděkujeme za rezervaci v ${C.name}! Zákon nám ukládá evidovat všechny ubytované hosty. Abychom při příjezdu ušetřili čas, vyplňte prosím předem online check-in za všechny osoby:\n\n${link}\n\nCheck-in je možný od ${C.checkInTime}. Ve formuláři prosím uveďte i předpokládaný čas příjezdu.\n\nTěšíme se na vás!`,
+  };
+  function update() {
+    const base = location.href.replace(/[^/]*$/, "");
+    const r = $("g-r").value.replace(/\D/g, "");
+    const q = new URLSearchParams({ src: "booking", lang: $("g-lang").value });
+    if (r) q.set("r", r);
+    if ($("g-a").value) q.set("a", $("g-a").value);
+    if ($("g-d").value) q.set("d", $("g-d").value);
+    const link = base + "checkin.html?" + q.toString();
+    $("g-link").value = link;
+    $("g-msg").value = T[$("g-lang").value]($("g-name").value.trim(), link);
+  }
+  document.querySelectorAll("#gen input:not([readonly]), #gen select").forEach((el) => el.addEventListener("input", update));
+  document.querySelectorAll("[data-copy]").forEach((b) => b.addEventListener("click", async () => {
+    const el = $(b.dataset.copy);
+    try { await navigator.clipboard.writeText(el.value); } catch (e) { el.select(); document.execCommand("copy"); }
+    $("g-ok").classList.remove("hidden");
+    setTimeout(() => $("g-ok").classList.add("hidden"), 2000);
+  }));
+  Babyka.initChrome();
+  update();
+})();
+</script>
+</body>
+</html>

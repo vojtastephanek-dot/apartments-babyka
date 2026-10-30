@@ -34,7 +34,7 @@ const SHEET_RES = "Rezervace";
 const SHEET_CI = "Check-in";
 const RES_HEAD = ["ID", "Vytvořeno", "Stav", "Apartmán", "Příjezd", "Odjezd", "Dospělí", "Děti", "Jméno",
   "E-mail", "Telefon", "Poznámka", "Celkem", "Záloha", "VS", "Splatnost", "Jazyk", "Check-in"];
-const CI_HEAD = ["Rezervace", "Odesláno", "Čas příjezdu", "SPZ", "Poznámka", "Jméno", "Příjmení", "Datum narození",
+const CI_HEAD = ["Rezervace", "Zdroj", "Příjezd", "Odjezd", "Odesláno", "Čas příjezdu", "SPZ", "Poznámka", "Jméno", "Příjmení", "Datum narození",
   "Občanství", "Druh dokladu", "Číslo dokladu", "Ulice", "Obec", "PSČ", "Stát bydliště", "Číslo víza", "Účel pobytu",
   "Nahlášeno Ubyport"];
 const STATUS = { NEW: "ČEKÁ NA PLATBU", PAID: "ZAPLACENO", CANCELLED: "STORNO" };
@@ -113,28 +113,42 @@ function nextId() {
 
 // ---------- Check-in ----------
 function checkin(p) {
-  const id = String(p.reservation || "").trim();
-  const sh = sheet(SHEET_RES, RES_HEAD);
-  const rows = sh.getDataRange().getValues();
-  const idx = rows.findIndex((r, i) => i > 0 && String(r[0]) === id);
-  if (idx < 0) return { ok: false, error: "notfound" };
+  const source = p.source === "booking" ? "Booking.com" : "Web";
+  const isDate = (v) => /^\d{4}-\d{2}-\d{2}$/.test(v);
   if (!Array.isArray(p.guests) || !p.guests.length || p.guests.length > 10) return { ok: false, error: "bad" };
+
+  let id, arrival, departure, resRow = -1;
+  const sh = sheet(SHEET_RES, RES_HEAD);
+  if (source === "Web") {
+    id = String(p.reservation || "").trim();
+    const rows = sh.getDataRange().getValues();
+    resRow = rows.findIndex((r, i) => i > 0 && String(r[0]) === id);
+    if (resRow < 0) return { ok: false, error: "notfound" };
+    arrival = asIso(rows[resRow][4]);
+    departure = asIso(rows[resRow][5]);
+  } else {
+    // Rezervace z Bookingu v tabulce nemáme – číslo (10 číslic) a termín zadává host
+    id = String(p.reservation || "").replace(/\D/g, "");
+    arrival = p.arrival; departure = p.departure;
+    if (!/^\d{8,12}$/.test(id) || !isDate(arrival) || !isDate(departure) || departure <= arrival) return { ok: false, error: "bad" };
+  }
 
   const ci = sheet(SHEET_CI, CI_HEAD);
   const now = new Date();
   p.guests.forEach((g) => {
-    ci.appendRow([id, now, clean(p.arrivalTime), clean(p.car), clean(p.note), clean(g.firstName), clean(g.lastName),
-      clean(g.birthDate), clean(g.nationality), clean(g.docType), clean(g.docNumber), clean(g.street), clean(g.city),
-      clean(g.zip), clean(g.country), clean(g.visa), clean(g.purpose), g.nationality === "CZ" ? "nehlásí se" : "NE"]);
+    ci.appendRow([id, source, arrival, departure, now, clean(p.arrivalTime), clean(p.car), clean(p.note),
+      clean(g.firstName), clean(g.lastName), clean(g.birthDate), clean(g.nationality), clean(g.docType),
+      clean(g.docNumber), clean(g.street), clean(g.city), clean(g.zip), clean(g.country), clean(g.visa),
+      clean(g.purpose), g.nationality === "CZ" ? "nehlásí se" : "NE"]);
   });
-  sh.getRange(idx + 1, RES_HEAD.indexOf("Check-in") + 1).setValue("ANO " + Utilities.formatDate(now, "Europe/Prague", "d.M. HH:mm"));
+  if (resRow > 0) sh.getRange(resRow + 1, RES_HEAD.indexOf("Check-in") + 1).setValue("ANO " + Utilities.formatDate(now, "Europe/Prague", "d.M. HH:mm"));
 
   const foreign = p.guests.filter((g) => g.nationality !== "CZ").length;
   try {
     MailApp.sendEmail({
       to: CONFIG.ownerEmail,
-      subject: `Check-in ${id}: ${p.guests.length} os.${foreign ? `, ${foreign}× cizinec → nahlásit do 3 prac. dnů (Ubyport)` : ""}`,
-      htmlBody: `Rezervace <b>${esc(id)}</b> – příjezd cca ${esc(p.arrivalTime)}.<br>` +
+      subject: `Check-in ${id} (${source}): ${p.guests.length} os.${foreign ? `, ${foreign}× cizinec → nahlásit do 3 prac. dnů (Ubyport)` : ""}`,
+      htmlBody: `Rezervace <b>${esc(id)}</b> (${source}), ${arrival} → ${departure}, příjezd cca ${esc(p.arrivalTime)}.<br>` +
         p.guests.map((g) => `${esc(g.firstName)} ${esc(g.lastName)} (${esc(g.nationality)})`).join("<br>") +
         (p.note ? `<br><br>Poznámka: ${esc(p.note)}` : "") + `<br><br>Detaily v listu „${SHEET_CI}“.`,
     });

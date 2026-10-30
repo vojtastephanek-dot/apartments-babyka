@@ -78,6 +78,21 @@
     if (rm) rm.addEventListener("click", () => card.remove());
   }
 
+  // Booking zobrazuje číslo rezervace s tečkami (např. 4123.456.789) – necháme jen číslice
+  function normalizeId(v, source) {
+    v = String(v || "").trim();
+    return source === "booking" ? v.replace(/\D/g, "") : v;
+  }
+
+  function sourceChanged() {
+    const booking = document.querySelector('[name="source"]:checked').value === "booking";
+    $("#stay-dates").classList.toggle("hidden", !booking);
+    $("#booking-hint").classList.toggle("hidden", !booking);
+    $("#f-arr").required = $("#f-dep").required = booking;
+    $("#l-reservation").dataset.i18n = booking ? "ci.bookingNumber" : "ci.reservation";
+    $("#l-reservation").textContent = B.t($("#l-reservation").dataset.i18n);
+  }
+
   function collect(form) {
     const fd = new FormData(form);
     const guests = [];
@@ -89,8 +104,12 @@
       if (g.nationality === "CZ") { delete g.visa; delete g.purpose; }
       guests.push(g);
     });
+    const source = fd.get("source");
     return {
-      reservation: fd.get("reservation").trim(),
+      source,
+      reservation: normalizeId(fd.get("reservation"), source),
+      arrival: source === "booking" ? fd.get("arrival") : "",
+      departure: source === "booking" ? fd.get("departure") : "",
       arrivalTime: fd.get("arrivalTime"),
       car: fd.get("car"),
       note: fd.get("note"),
@@ -109,12 +128,19 @@
       form.reportValidity();
       return;
     }
+    const data = collect(form);
+    if (data.source === "booking") {
+      let msg = "";
+      if (!/^\d{8,12}$/.test(data.reservation)) msg = B.t("err.bookingNumber");
+      else if (!data.arrival || !data.departure || data.departure <= data.arrival) msg = B.t("err.dates");
+      if (msg) { err.textContent = msg; err.classList.remove("hidden"); return; }
+    }
     err.classList.add("hidden");
     const btn = $("#ci-submit");
     btn.disabled = true;
     btn.textContent = B.t("book.sending");
     try {
-      const res = await B.api("checkin", collect(form));
+      const res = await B.api("checkin", data);
       if (!res.ok) {
         err.textContent = B.t(res.error === "notfound" ? "ci.notFound" : "err.generic");
         err.classList.remove("hidden");
@@ -151,8 +177,14 @@
   }
 
   B.initChrome();
-  const r = new URLSearchParams(location.search).get("r");
-  if (r) $("#f-reservation").value = r;
+  const q = new URLSearchParams(location.search);
+  if (q.get("src") === "booking") document.querySelector('[name="source"][value="booking"]').checked = true;
+  if (q.get("r")) $("#f-reservation").value = q.get("r");
+  if (q.get("a")) $("#f-arr").value = q.get("a");
+  if (q.get("d")) $("#f-dep").value = q.get("d");
+  document.querySelectorAll('[name="source"]').forEach((el) => el.addEventListener("change", sourceChanged));
+  document.addEventListener("langchange", sourceChanged);
+  sourceChanged();
   addGuest();
   $("#add-guest").addEventListener("click", addGuest);
   $("#ci-form").addEventListener("submit", submit);
