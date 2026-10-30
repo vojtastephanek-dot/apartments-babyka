@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Apartments Babyka · Český Krumlov</title>
+  <meta name="description" content="Dva apartmány v historickém centru Českého Krumlova. Rezervujte přímo, platba QR kódem, online check-in.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<nav class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M11 30V14H9v-3h14v3h-2v16zM12.5 11V7h7v4zM12 7c0-2.5 2-4 4-5c2 1 4 2.5 4 5z" fill="currentColor"/></svg><span><b>Babyka</b><small>Apartments · Český Krumlov</small></span></a>
+    <div class="nav-links">
+      <a href="index.html#apartmany" data-i18n="nav.rooms"></a>
+      <a href="index.html#rezervace" data-i18n="nav.book"></a>
+      <a href="checkin.html" data-i18n="nav.checkin"></a>
+      <a href="#kontakt" data-i18n="nav.contact"></a>
+      <div class="lang-switch"><button data-lang="cs">CZ</button><button data-lang="en">EN</button><button data-lang="de">DE</button></div>
+    </div>
+    <button class="nav-toggle" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="kicker" data-i18n="hero.kicker"></div>
+    <h1 data-i18n="hero.title"></h1>
+    <p data-i18n="hero.text"></p>
+    <div class="hero-actions">
+      <a class="btn" href="#rezervace" data-i18n="hero.cta"></a>
+      <a class="btn ghost" href="#apartmany" data-i18n="nav.rooms"></a>
+    </div>
+    <div class="hero-rating"><b>9,7</b> / 10 · Booking.com</div>
+  </div>
+  <svg class="skyline" viewBox="0 0 1440 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+  <path d="M0 300V215V185L40 156L80 185V179H93V161H98V179H143V178L163 142H189L209 178V183L255 152L301 183V177L344 139L388 177V172L420 130L453 172V177H472V158H480V177H549V170L579 125H619L649 170V172L668 129H693L712 172V183L743 151L775 183V181L809 147L843 181V186L871 158H909L937 186V168L984 122L1032 168V172L1061 129H1100L1129 172V187L1170 159L1212 187V172L1244 129L1276 172V174L1298 134H1327L1349 174V180L1392 145L1436 180V178L1480 142L1525 178V300Z" fill="#1a3532" opacity=".55"/>
+  <g transform="translate(-152 0) scale(1.25)">
+    <path d="M1032 240V96h-6v-12h88v12h-6V240Z M1044 84V52h52v32ZM1040 52c0-14 10-22 30-30c20 8 30 16 30 30Z M1066 22c0-6 2-10 4-14c2 4 4 8 4 14Z M1069 8h2v-6h-2Z" fill="#7a2d1f"/>
+    <g fill="#e9c98c" opacity=".85"><rect x='1052' y='62' width='6' height='10' rx='3'/><rect x='1067' y='62' width='6' height='10' rx='3'/><rect x='1082' y='62' width='6' height='10' rx='3'/><rect x='1046' y='120' width='6' height='10' rx='3'/><rect x='1088' y='120' width='6' height='10' rx='3'/><rect x='1067' y='150' width='6' height='10' rx='3'/></g>
+    <path d="M1032 108h76M1032 116h76" stroke="#5d2217" stroke-width="2"/>
+  </g>
+  <path d="M0 300V255V230L28 205L56 230V221L88 187L120 221V223L153 192L186 223V234L210 213L235 234V227L262 199L290 227V224L328 194L366 224V235L392 216H427L453 235V227L493 200L534 227V222L554 189H581L601 222V229H616V216H622V229H675V222L694 190H718L737 222V236L752 217H771L786 236V223L818 192L850 223V226L884 198L919 226V226L956 198L993 226V222L1019 189L1045 222V233L1064 212H1089L1108 233H1178H1254H1309V220L1344 185L1379 220V213H1390V193H1394V213H1432V214H1444V194H1449V214H1494V300Z" fill="#8e3a28"/>
+  <path d="M0 300V285V271L27 258L54 271V273L74 261L95 273V275L117 265L139 275V272L172 260L206 272V273L221 261L236 273V265L252 246H273L289 265V257H297V243H300V257H327V265L348 245H375L396 265V262H403V251H405V262H429V269L461 253L494 269V273L521 262L549 273V274L576 264L604 274V268L625 251L647 268V265L672 246L698 265V266L713 247L728 266V269L739 254H753L764 269V272L774 259H788L798 272V265L817 245L837 265V265L863 246L889 265V269H896V262H899V269H926V267L955 250L985 267V273L1002 261L1020 273V263L1045 242L1071 263V267L1091 249L1111 267V269L1142 254L1174 269V275L1193 265H1219L1238 275V258H1248V245H1252V258H1287V267L1310 249L1333 267V269L1345 254H1361L1373 269V266L1392 248H1418L1437 266V265L1462 245L1488 265V300Z" fill="#f3eadb"/>
+</svg>
+</header>
+<div class="sgraffito-band" aria-hidden="true"></div>
+
+<section id="o-nas">
+  <div class="wrap about-grid">
+    <div class="reveal">
+      <div class="kicker">Široká · Český Krumlov</div>
+      <h2 data-i18n="about.title"></h2>
+      <p class="lead" data-i18n="about.text"></p>
+    </div>
+    <ul class="features reveal">
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span data-i18n="about.f1"></span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 11h16M6 11V7a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v4M5 11v8h14v-8"/><circle cx="9" cy="15" r="1"/><circle cx="15" cy="15" r="1"/></svg><span data-i18n="about.f2"></span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12h16v2a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5v-2zM6 12V6a2 2 0 0 1 4 0M7 19l-1 2M17 19l1 2"/></svg><span data-i18n="about.f3"></span></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg><span data-i18n="about.f4"></span></li>
+    </ul>
+  </div>
+</section>
+
+<section id="apartmany" class="rooms">
+  <div class="wrap">
+    <div class="kicker">Apartments Babyka</div>
+    <h2 data-i18n="rooms.title"></h2>
+    <div class="room-grid" id="room-grid"></div>
+  </div>
+</section>
+
+<section id="rezervace">
+  <div class="wrap">
+    <div class="kicker" data-i18n="nav.book"></div>
+    <h2 data-i18n="cal.title"></h2>
+
+    <div class="book-grid">
+      <div class="panel">
+        <div class="room-tabs" id="room-tabs"></div>
+        <div id="calendar"><div class="cal-loading" data-i18n="cal.loading"></div></div>
+        <div class="cal-legend">
+          <span><i style="background:#fff;border:1px solid var(--line)"></i><span data-i18n="cal.free"></span></span>
+          <span><i style="background:var(--busy)"></i><span data-i18n="cal.busy"></span></span>
+          <span><i style="background:var(--vltava)"></i><span data-i18n="book.arrival"></span> / <span data-i18n="book.departure"></span></span>
+        </div>
+      </div>
+
+      <div class="panel" id="book-panel">
+        <h3 data-i18n="book.title"></h3>
+        <form id="book-form" novalidate>
+          <label><span data-i18n="book.room"></span><select name="room" id="f-room" required></select></label>
+          <div class="row">
+            <label><span data-i18n="book.arrival"></span><input type="date" name="arrival" id="f-arrival" required></label>
+            <label><span data-i18n="book.departure"></span><input type="date" name="departure" id="f-departure" required></label>
+          </div>
+          <div class="row">
+            <label><span data-i18n="book.adults"></span><input type="number" name="adults" id="f-adults" min="1" value="2" required></label>
+            <label><span data-i18n="book.children"></span><input type="number" name="children" id="f-children" min="0" value="0"></label>
+          </div>
+          <label><span data-i18n="book.name"></span><input name="name" autocomplete="name" required></label>
+          <div class="row">
+            <label><span data-i18n="book.email"></span><input type="email" name="email" autocomplete="email" required></label>
+            <label><span data-i18n="book.phone"></span><input type="tel" name="phone" autocomplete="tel" required></label>
+          </div>
+          <label><span data-i18n="book.note"></span><textarea name="note"></textarea></label>
+
+          <div class="summary hidden" id="summary"></div>
+          <div class="msg err hidden" id="book-err"></div>
+          <label class="check"><input type="checkbox" name="gdpr" required><span data-i18n="book.gdpr"></span></label>
+          <!-- past na spamboty: skryté pole, člověk ho nevyplní -->
+          <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
+          <button class="btn block" type="submit" id="book-submit" data-i18n="book.submit"></button>
+        </form>
+
+        <div id="pay" class="hidden"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="direct">
+  <div class="wrap">
+    <div>
+      <h2 data-i18n="direct.title"></h2>
+      <p data-i18n="direct.text"></p>
+    </div>
+    <a class="btn ghost" href="checkin.html" style="color:#f3eadb" data-i18n="nav.checkin"></a>
+  </div>
+</section>
+
+<footer id="kontakt">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <h4>Apartments Babyka</h4>
+        <p data-c="contact.address"></p>
+        <p><a class="map-link" target="_blank" rel="noopener">Mapy.cz →</a></p>
+      </div>
+      <div>
+        <h4 data-i18n="nav.contact"></h4>
+        <p><a data-c="contact.email" data-href="mailto:{}"></a></p>
+        <p><a data-c="contact.phone" data-href="tel:{}"></a></p>
+      </div>
+      <div>
+        <h4>Info</h4>
+        <p>Check-in <span data-c="checkInTime"></span> · Check-out <span data-c="checkOutTime"></span></p>
+        <p><a href="checkin.html" data-i18n="nav.checkin"></a></p>
+        <p><a href="gdpr.html">GDPR</a></p>
+      </div>
+    </div>
+    <div class="bottom">© <span id="year"></span> Apartments Babyka. <span data-i18n="footer.rights"></span></div>
+  </div>
+</footer>
+
+<script src="assets/config.js"></script>
+<script src="assets/i18n.js"></script>
+<script src="assets/qrcode.js"></script>
+<script src="assets/common.js"></script>
+<script src="assets/pay.js"></script>
+<script src="assets/booking.js"></script>
+</body>
+</html>

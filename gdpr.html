@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ochrana osobních údajů · Apartments Babyka</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<nav class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M11 30V14H9v-3h14v3h-2v16zM12.5 11V7h7v4zM12 7c0-2.5 2-4 4-5c2 1 4 2.5 4 5z" fill="currentColor"/></svg><span><b>Babyka</b><small>Apartments · Český Krumlov</small></span></a>
+    <div class="nav-links">
+      <a href="index.html#apartmany" data-i18n="nav.rooms"></a>
+      <a href="index.html#rezervace" data-i18n="nav.book"></a>
+      <a href="checkin.html" data-i18n="nav.checkin"></a>
+      <a href="#kontakt" data-i18n="nav.contact"></a>
+      <div class="lang-switch"><button data-lang="cs">CZ</button><button data-lang="en">EN</button><button data-lang="de">DE</button></div>
+    </div>
+    <button class="nav-toggle" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
+</nav>
+<header class="page-head"><div class="wrap narrow"><div class="kicker">GDPR</div><h1>Ochrana osobních údajů</h1>
+<p>Privacy policy · Datenschutz – the binding version is Czech; English/German translation available on request.</p></div></header>
+<section style="padding-top:48px"><div class="wrap prose">
+<p><em>VZOR – před zveřejněním doplňte údaje v hranatých závorkách a nechte text zkontrolovat.</em></p>
+<h2>Správce</h2>
+<p>[Jméno / firma], IČO [00000000], [adresa], e-mail <a data-c="contact.email" data-href="mailto:{}"></a> (dále „ubytovatel“).</p>
+<h2>Jaké údaje a proč</h2>
+<p><b>Rezervace</b> – jméno, e-mail, telefon, termín, počet osob, poznámka. Účel: uzavření a plnění smlouvy o ubytování (čl. 6 odst. 1 písm. b) GDPR).</p>
+<p><b>Online check-in</b> – jméno, příjmení, datum narození, státní občanství, druh a číslo dokladu, adresa bydliště; u cizinců navíc číslo víza a účel pobytu. Účel: plnění zákonných povinností ubytovatele (čl. 6 odst. 1 písm. c) GDPR) – vedení evidence ubytovaných a hlášení ubytování cizinců Policii ČR podle zákona č. 326/1999 Sb., o pobytu cizinců, a evidence pro místní poplatek z pobytu podle zákona č. 565/1990 Sb., o místních poplatcích.</p>
+<h2>Jak dlouho</h2>
+<p>Údaje z evidence ubytovaných uchováváme po dobu stanovenou zákonem (6 let od posledního zápisu). Ostatní údaje o rezervaci po dobu nezbytnou pro vyřízení pobytu a účetní a daňové povinnosti.</p>
+<h2>Komu údaje předáváme</h2>
+<p>Policii ČR (hlášení cizinců), obecnímu úřadu (poplatek z pobytu, je-li vyžádáno). Data jsou uložena u poskytovatele Google (Google Workspace / Google Disk), který vystupuje jako zpracovatel; přenos mimo EU je zajištěn standardními smluvními doložkami a rámcem EU–US Data Privacy Framework.</p>
+<h2>Vaše práva</h2>
+<p>Máte právo na přístup k údajům, opravu, výmaz (pokud to nebrání zákonná povinnost), omezení zpracování, vznesení námitky a podání stížnosti u Úřadu pro ochranu osobních údajů (<a href="https://uoou.gov.cz" target="_blank" rel="noopener">uoou.gov.cz</a>).</p>
+</div></section>
+<footer id="kontakt">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <h4>Apartments Babyka</h4>
+        <p data-c="contact.address"></p>
+        <p><a class="map-link" target="_blank" rel="noopener">Mapy.cz →</a></p>
+      </div>
+      <div>
+        <h4 data-i18n="nav.contact"></h4>
+        <p><a data-c="contact.email" data-href="mailto:{}"></a></p>
+        <p><a data-c="contact.phone" data-href="tel:{}"></a></p>
+      </div>
+      <div>
+        <h4>Info</h4>
+        <p>Check-in <span data-c="checkInTime"></span> · Check-out <span data-c="checkOutTime"></span></p>
+        <p><a href="checkin.html" data-i18n="nav.checkin"></a></p>
+        <p><a href="gdpr.html">GDPR</a></p>
+      </div>
+    </div>
+    <div class="bottom">© <span id="year"></span> Apartments Babyka. <span data-i18n="footer.rights"></span></div>
+  </div>
+</footer>
+<script src="assets/config.js"></script>
+<script src="assets/i18n.js"></script>
+<script src="assets/config.js"></script>
+<script src="assets/i18n.js"></script>
+<script src="assets/common.js"></script>
+<script>Babyka.initChrome();</script>
+</body>
+</html>
