@@ -1,7 +1,7 @@
 window.BABYKA_I18N = {
   cs: {
     "nav.rooms": "Apartmány", "nav.book": "Rezervace", "nav.checkin": "Online check-in", "nav.contact": "Kontakt",
-    "hero.kicker": "Český Krumlov · historické centrum", "hero.title": "Dva apartmány v srdci Krumlova",
+    "hero.kicker": "Český Krumlov · historické centrum", "hero.title": "Apartmány v srdci Krumlova",
     "hero.text": "Pár kroků od náměstí Svornosti, pod zámeckou věží. Rezervujte přímo u nás – bez poplatků zprostředkovatelům, platba QR kódem.",
     "about.title": "Bydlení mezi hradbami a Vltavou", "about.text": "Ubytujte se v domě v Široké ulici, v památkové zóně UNESCO. Ráno káva s výhledem na střechy, večer procházka podél Vltavy – vše je na dosah pěšky.", "about.f1": "2 min pěšky na náměstí", "about.f2": "Plně vybavená kuchyně", "about.f3": "Vlastní koupelna", "about.f4": "Hodnocení hostů 9,7/10", "rooms.size": "m²", "direct.title": "Proč rezervovat napřímo?", "direct.text": "Nejlepší cena bez provize, rychlá domluva přímo s hostitelem a check-in vyřízený online ještě před cestou.",
     "hero.cta": "Zkontrolovat volné termíny",
@@ -49,7 +49,7 @@ window.BABYKA_I18N = {
   },
   en: {
     "nav.rooms": "Apartments", "nav.book": "Booking", "nav.checkin": "Online check-in", "nav.contact": "Contact",
-    "hero.kicker": "Český Krumlov · historic centre", "hero.title": "Two apartments in the heart of Krumlov",
+    "hero.kicker": "Český Krumlov · historic centre", "hero.title": "Apartments in the heart of Krumlov",
     "hero.text": "Steps from the Main Square, beneath the castle tower. Book directly with us – no intermediary fees, pay by QR code.",
     "about.title": "Living between town walls and the Vltava", "about.text": "Stay in a house on Široká street, inside the UNESCO-listed old town. Morning coffee over red rooftops, an evening walk along the Vltava – everything within walking distance.", "about.f1": "2 min walk to the square", "about.f2": "Fully equipped kitchen", "about.f3": "Private bathroom", "about.f4": "Guest rating 9.7/10", "rooms.size": "m²", "direct.title": "Why book direct?", "direct.text": "Best price without commission, quick contact with your host, and check-in done online before you travel.",
     "hero.cta": "Check availability",
@@ -97,7 +97,7 @@ window.BABYKA_I18N = {
   },
   de: {
     "nav.rooms": "Apartments", "nav.book": "Buchung", "nav.checkin": "Online-Check-in", "nav.contact": "Kontakt",
-    "hero.kicker": "Český Krumlov · Altstadt", "hero.title": "Zwei Apartments im Herzen von Krumau",
+    "hero.kicker": "Český Krumlov · Altstadt", "hero.title": "Apartments im Herzen von Krumau",
     "hero.text": "Nur wenige Schritte vom Marktplatz, unterhalb des Schlossturms. Buchen Sie direkt – ohne Vermittlungsgebühren, Zahlung per QR-Code.",
     "about.title": "Wohnen zwischen Stadtmauern und Moldau", "about.text": "Übernachten Sie in einem Haus in der Široká-Gasse, mitten in der UNESCO-Altstadt. Morgens Kaffee über roten Dächern, abends ein Spaziergang an der Moldau – alles zu Fuß erreichbar.", "about.f1": "2 Min. zu Fuß zum Marktplatz", "about.f2": "Voll ausgestattete Küche", "about.f3": "Eigenes Bad", "about.f4": "Gästebewertung 9,7/10", "rooms.size": "m²", "direct.title": "Warum direkt buchen?", "direct.text": "Bester Preis ohne Provision, schneller Kontakt zum Gastgeber und Check-in online schon vor der Reise.",
     "hero.cta": "Verfügbarkeit prüfen",
