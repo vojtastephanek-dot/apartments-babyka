@@ -58,7 +58,7 @@ section { padding: clamp(64px, 9vw, 112px) 0; }
 }
 .nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 68px; gap: 16px; }
 .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); }
-.brand svg { width: 30px; height: 30px; color: var(--roof); flex: none; }
+.brand svg { width: 18px; height: 36px; flex: none; }
 .brand b { font-family: var(--serif); font-size: 1.45rem; font-weight: 600; letter-spacing: .01em; }
 .brand small { display: block; font-size: .64rem; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); margin-top: -4px; }
 .nav-links { display: flex; align-items: center; gap: 28px; }
@@ -106,7 +106,7 @@ section { padding: clamp(64px, 9vw, 112px) 0; }
   font-size: .88rem; color: rgba(246, 238, 225, .8);
 }
 .hero-rating b { font-family: var(--serif); font-size: 1.7rem; color: #fff; font-weight: 600; }
-.skyline { position: relative; z-index: 1; display: block; width: 100%; height: auto; margin-top: clamp(-120px, -8vw, -20px); pointer-events: none; }
+.skyline { position: relative; z-index: 1; display: block; width: 100%; height: auto; margin-top: clamp(-190px, -14vw, -30px); pointer-events: none; }
 
 .sgraffito-band { height: 34px; background: var(--parchment) var(--sgraffito) repeat-x center / 64px 32px; border-bottom: 1px solid var(--line); }
 
